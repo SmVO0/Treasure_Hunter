@@ -31,11 +31,11 @@ public class GamePanel extends JPanel implements Runnable {
         this.gameThread = new Thread(this);
         this.gameThread.start();
     }
-
+ // TODO - FIX THE FPS
     @Override
     public void run() {
         double drawInterval = 1.6666666666666666E7;
-        double delta = 0;
+        double delta = 0.0;
         long lastTime = System.nanoTime();
         long timer = 0L;
         int drawCount = 0;
@@ -62,7 +62,7 @@ public class GamePanel extends JPanel implements Runnable {
     public void Update() {
         this.player.update();
     }
-
+    //TODO - Player not showing
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
