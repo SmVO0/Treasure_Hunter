@@ -22,17 +22,17 @@ public class KeyHandler implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         int code = e.getKeyCode();
-        if (code == 38) {
+        if (code == KeyEvent.VK_UP) {
             this.upPressed = true;
         }
-        if (code == 40) {
+        if (code == KeyEvent.VK_DOWN) {
             this.downPressed = true;
         }
 
-        if (code == 37) {
+        if (code == KeyEvent.VK_LEFT) {
             this.leftPressed = true;
         }
-        if (code == 39) {
+        if (code == KeyEvent.VK_RIGHT) {
             this.rightPressed = true;
         }
     }

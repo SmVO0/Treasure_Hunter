@@ -31,7 +31,8 @@ public class GamePanel extends JPanel implements Runnable {
         this.gameThread = new Thread(this);
         this.gameThread.start();
     }
- // TODO - FIX THE FPS
+ // TODO - FIX THE FPS 
+
     @Override
     public void run() {
         double drawInterval = 1.6666666666666666E7;
