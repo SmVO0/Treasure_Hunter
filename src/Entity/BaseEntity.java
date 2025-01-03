@@ -6,5 +6,7 @@ public class BaseEntity {
     public int y;
     public int speed;
 
-    public BaseEntity() {}
+    public BaseEntity() {
+
+    }
 }
