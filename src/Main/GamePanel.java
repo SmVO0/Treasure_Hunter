@@ -8,7 +8,7 @@ import java.awt.*;
 public class GamePanel extends JPanel implements Runnable {
 //    final int originalTileSize = 16;
 //    final int scale = 3;
-//    public final int tileSize = 48;
+    public final int tileSize = 48;
 //    final int maxScreenCol = 16;
 //    final int maxScreenRow = 12;
     final int screenWidth = 768;
@@ -23,7 +23,7 @@ public class GamePanel extends JPanel implements Runnable {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.BLACK);
         this.setDoubleBuffered(true);
-        this.addKeyListener(this.keyHandler);
+        this.addKeyListener(keyHandler);
         this.setFocusable(true);
     }
 
@@ -48,7 +48,7 @@ public class GamePanel extends JPanel implements Runnable {
             lastTime = currentTime;
 
             if (delta >= 1) {
-                Update();
+                update();
                 repaint();
                 delta--;
                 drawCount++;
@@ -62,12 +62,14 @@ public class GamePanel extends JPanel implements Runnable {
         }
     }
 
-    public void Update() {
+    public void update() {
         this.player.update();
     }
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
+        g2d.setColor(Color.CYAN);
+        g2d.fillRect(player.x,player.y, tileSize, tileSize);
         g2d.dispose();
     }
 }

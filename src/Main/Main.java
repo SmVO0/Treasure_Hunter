@@ -1,7 +1,7 @@
 package Main;
 
 import javax.swing.*;
-import java.awt.*;
+//import java.awt.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -10,11 +10,15 @@ public class Main {
         window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         window.setResizable(false);
         window.setTitle("Treasure Hunter");
+
         GamePanel gamePanel = new GamePanel();
         window.add(gamePanel);
+
         window.pack();
-        window.setLocationRelativeTo((Component) null);
+
+        window.setLocationRelativeTo(null);
         window.setVisible(true);
+
         gamePanel.StartThread();
     }
 }
