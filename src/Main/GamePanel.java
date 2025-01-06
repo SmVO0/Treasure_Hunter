@@ -69,7 +69,7 @@ public class GamePanel extends JPanel implements Runnable {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
         g2d.setColor(Color.RED);
-        g2d.fillRect(player.x,player.y, tileSize, tileSize);
+        player.draw(g2d);
         g2d.dispose();
     }
 }
