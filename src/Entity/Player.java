@@ -44,34 +44,38 @@ public class Player extends BaseEntity {
     }
 
     public void update() {
-        if(this.keyH.upPressed){
-            direction = "up";
-            this.y -= this.speed;
-        }
 
-        if(this.keyH.downPressed){
-            direction = "down";
-            this.y += this.speed;
-        }
-
-        if(this.keyH.leftPressed){
-            direction = "left";
-            this.x -= this.speed;
-        }
-
-        if(this.keyH.rightPressed){
-            direction = "right";
-            this.x += this.speed;
-        }
-        spriteCounter++;
-
-        if(spriteCounter > 10){
-            if (spriteNumber == 1){
-                spriteNumber = 2;
-            } else if (spriteNumber == 2){
-                spriteNumber = 1;
+        if(keyH.upPressed == true || keyH.downPressed == true || keyH.leftPressed == true
+        || keyH.rightPressed == true){
+            if(this.keyH.upPressed){
+                direction = "up";
+                this.y -= this.speed;
             }
-            spriteCounter = 0;
+
+            if(this.keyH.downPressed){
+                direction = "down";
+                this.y += this.speed;
+            }
+
+            if(this.keyH.leftPressed){
+                direction = "left";
+                this.x -= this.speed;
+            }
+
+            if(this.keyH.rightPressed){
+                direction = "right";
+                this.x += this.speed;
+            }
+            spriteCounter++;
+
+            if(spriteCounter > 10){
+                if (spriteNumber == 1){
+                    spriteNumber = 2;
+                } else if (spriteNumber == 2){
+                    spriteNumber = 1;
+                }
+                spriteCounter = 0;
+            }
         }
     }
 
