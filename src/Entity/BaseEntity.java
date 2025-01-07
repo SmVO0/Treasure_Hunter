@@ -14,6 +14,9 @@ public class BaseEntity {
     public BufferedImage up1, up2, down1, down2, left1, left2, right1, right2;
     public String direction;
 
+    public int spriteNumber = 1;
+    public int spriteCounter = 0;
+
     public BaseEntity() {}
 
 

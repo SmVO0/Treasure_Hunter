@@ -63,6 +63,16 @@ public class Player extends BaseEntity {
             direction = "right";
             this.x += this.speed;
         }
+        spriteCounter++;
+
+        if(spriteCounter > 10){
+            if (spriteNumber == 1){
+                spriteNumber = 2;
+            } else if (spriteNumber == 2){
+                spriteNumber = 1;
+            }
+            spriteCounter = 0;
+        }
     }
 
     public void draw(Graphics2D g2) {
@@ -75,16 +85,33 @@ public class Player extends BaseEntity {
 
         switch(direction){
             case "up":
-                img = up1;
+                if (spriteNumber == 1){
+                    img = up1;
+                } else if (spriteNumber == 2){
+                    img = up2;
+                }
+
                 break;
             case "down":
-                img = down1;
+                if (spriteNumber == 1){
+                    img = down1;
+                } else if (spriteNumber == 2){
+                    img = down2;
+                }
                 break;
             case "left":
-                img = left1;
+                if (spriteNumber == 1){
+                    img = left1;
+                } else if (spriteNumber == 2){
+                    img = left2;
+                }
                 break;
             case "right":
-                img = right1;
+                if (spriteNumber == 1) {
+                    img = right1;
+                } else if (spriteNumber == 2) {
+                    img = right2;
+                }
                 break;
         }
         g2.drawImage(img, x, y, gp.tileSize, gp.tileSize, null);
