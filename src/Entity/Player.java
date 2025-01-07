@@ -5,7 +5,9 @@ import Main.KeyHandler;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Objects;
 
 public class Player extends BaseEntity {
 
@@ -15,7 +17,8 @@ public class Player extends BaseEntity {
     public Player(GamePanel gp, KeyHandler keyH) {
         this.gp = gp;
         this.keyH = keyH;
-        setDefaultValues();
+        this.setDefaultValues();
+        this.getPlayerImage();
     }
 
     public void setDefaultValues() {
@@ -28,14 +31,14 @@ public class Player extends BaseEntity {
 
     public void getPlayerImage(){
         try {
-            up1 = ImageIO.read(getClass().getResourceAsStream("/Sprites/back_1.png"));
-            up2 = ImageIO.read(getClass().getResourceAsStream("/Sprites/back_2.png"));
-            down1 = ImageIO.read(getClass().getResourceAsStream("/Sprites/front_1.png"));
-            down2 = ImageIO.read(getClass().getResourceAsStream("/Sprites/front_2.png"));
-            left1 = ImageIO.read(getClass().getResourceAsStream("/Sprites/left_1.png"));
-            left2 = ImageIO.read(getClass().getResourceAsStream("/Sprites/left_2.png"));
-            right1 = ImageIO.read(getClass().getResourceAsStream("/Sprites/right_1.png"));
-            right2 = ImageIO.read(getClass().getResourceAsStream("/Sprites/right_2.png"));
+            up1 = ImageIO.read(getClass().getClassLoader().getResourceAsStream("player/back_1.png"));
+            up2 = ImageIO.read(getClass().getClassLoader().getResourceAsStream("player/back_2.png"));
+            down1 = ImageIO.read(getClass().getClassLoader().getResourceAsStream("player/front_1.png"));
+            down2 = ImageIO.read(getClass().getClassLoader().getResourceAsStream("player/front_2.png"));
+            left1 = ImageIO.read(getClass().getClassLoader().getResourceAsStream("player/left_1.png"));
+            left2 = ImageIO.read(getClass().getClassLoader().getResourceAsStream("player/left_2.png"));
+            right1 = ImageIO.read(getClass().getClassLoader().getResourceAsStream("player/right_1.png"));
+            right2 = ImageIO.read(getClass().getClassLoader().getResourceAsStream("player/right_2.png"));
 
         } catch (IOException e){ e.printStackTrace(); }
     }
@@ -62,10 +65,28 @@ public class Player extends BaseEntity {
         }
     }
 
-    public void draw(Graphics g) {
-        g.setColor(Color.WHITE);
+    public void draw(Graphics2D g2) {
+        /*g.setColor(Color.WHITE);
         int x = this.x;
         int y = this.y;
-        g.fillRect(x, y, 48, 48);
+        g.fillRect(x, y, 48, 48);*/
+
+        BufferedImage img = null;
+
+        switch(direction){
+            case "up":
+                img = up1;
+                break;
+            case "down":
+                img = down1;
+                break;
+            case "left":
+                img = left1;
+                break;
+            case "right":
+                img = right1;
+                break;
+        }
+        g2.drawImage(img, x, y, gp.tileSize, gp.tileSize, null);
     }
 }
