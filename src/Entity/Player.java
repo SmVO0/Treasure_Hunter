@@ -31,22 +31,22 @@ public class Player extends BaseEntity {
 
     public void getPlayerImage(){
         try {
-            up1 = ImageIO.read(getClass().getClassLoader().getResourceAsStream("player/back_1.png"));
-            up2 = ImageIO.read(getClass().getClassLoader().getResourceAsStream("player/back_2.png"));
-            down1 = ImageIO.read(getClass().getClassLoader().getResourceAsStream("player/front_1.png"));
-            down2 = ImageIO.read(getClass().getClassLoader().getResourceAsStream("player/front_2.png"));
-            left1 = ImageIO.read(getClass().getClassLoader().getResourceAsStream("player/left_1.png"));
-            left2 = ImageIO.read(getClass().getClassLoader().getResourceAsStream("player/left_2.png"));
-            right1 = ImageIO.read(getClass().getClassLoader().getResourceAsStream("player/right_1.png"));
-            right2 = ImageIO.read(getClass().getClassLoader().getResourceAsStream("player/right_2.png"));
+            up1 = ImageIO.read(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("player/back_1.png")));
+            up2 = ImageIO.read(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("player/back_2.png")));
+            down1 = ImageIO.read(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("player/front_1.png")));
+            down2 = ImageIO.read(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("player/front_2.png")));
+            left1 = ImageIO.read(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("player/left_1.png")));
+            left2 = ImageIO.read(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("player/left_2.png")));
+            right1 = ImageIO.read(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("player/right_1.png")));
+            right2 = ImageIO.read(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("player/right_2.png")));
 
         } catch (IOException e){ e.printStackTrace(); }
     }
 
     public void update() {
 
-        if(keyH.upPressed == true || keyH.downPressed == true || keyH.leftPressed == true
-        || keyH.rightPressed == true){
+        if(keyH.upPressed || keyH.downPressed || keyH.leftPressed
+        || keyH.rightPressed){
             if(this.keyH.upPressed){
                 direction = "up";
                 this.y -= this.speed;
